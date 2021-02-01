@@ -1,6 +1,11 @@
 import {RootTheme, studioTheme as defaults} from '@sanity/ui'
 import legacyTheme from 'sanity:css-custom-properties'
 import {color} from './color'
+import {fonts} from './fonts'
+
+// @todo Remove this when no longer debugging in:
+// examples/design-studio/plugins/ui-test-bed-tool
+export {_tones} from './color'
 
 // For debugging purposes
 declare global {
@@ -11,6 +16,9 @@ declare global {
 
 window.__sanityLegacyTheme = legacyTheme
 
+/**
+ * The theme object used to configure theming of `@sanity/ui`.
+ */
 export const theme: RootTheme = {
   ...defaults,
   color,
@@ -18,6 +26,7 @@ export const theme: RootTheme = {
     offset: -1,
     width: 2,
   },
+  fonts,
   media: [
     parseInt(legacyTheme['--screen-medium-break'], 10) || 512,
     parseInt(legacyTheme['--screen-default-break'], 10) || 640,
